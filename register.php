@@ -24,6 +24,7 @@
         <div class="col-sm-6" style="margin-top: 4rem;">
             <h1>Contact Book</h1>
             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+                <input type="hidden" name="csrf_token" value="<?php echo DataHandler::generateCsrfToken() ?>">
                 <div class="mb-3">
                     <label for="login" class="form-label">Логин</label>
                     <input type="text" name="login" id="login"

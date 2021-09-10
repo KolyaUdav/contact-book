@@ -1,5 +1,11 @@
 <?php
 
+session_start();
+
+if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] != $_SESSION['csrf_token']) {
+    return;
+}
+
 if (isset($_POST['login'])) {
     if (empty($_POST['login'])) {
         echo '<div class="alert alert-danger alert-tip" id="liveAlertPlaceholder" role="alert">
